@@ -46,6 +46,10 @@ body {
   background-color: #fff;
 }
 
+img {
+    height: 100%;
+}
+
 @media (max-width: 991px) {
   .el-wrapper {
     width: 345px;
@@ -173,7 +177,10 @@ body {
 .info-inner .p-name {
   font-family: 'PT Sans', sans-serif;
   font-size: 18px;
-  color: #252525;
+  color: #ffff;
+  background-color:rgba(104, 0, 255, 0.3);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .info-inner .p-company {
