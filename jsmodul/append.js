@@ -15,21 +15,22 @@ export async function displayIt() {
       console.log(photo);
 
       const bodyEl = document.createElement("div");
-      
+      bodyEl.classList.add('card')
+
       document.body.appendChild(bodyEl);
       para.innerText = data.products[i].name;
 
       const price = document.createElement("div");
-      price.innerText = data.products[i].price;
+      price.innerText = "Price: " + data.products[i].price + " kr";
 
       const quantity = document.createElement("div");
-      quantity.innerText = data.products[i].quantity;
-      
+      quantity.innerText = "Quantity: " + data.products[i].quantity;
+
       para.appendChild(price);
       para.appendChild(quantity);
-      para.appendChild(photo)
+      para.appendChild(photo);
       bodyEl.appendChild(para);
-     
+
       console.log(myStringArray[i]);
     }
   });
