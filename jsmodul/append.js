@@ -17,17 +17,22 @@ export async function displayIt() {
       const bodyEl = document.createElement("div");
       bodyEl.classList.add('card')
 
+
       document.body.appendChild(bodyEl);
-      para.innerText = data.products[i].name;
 
       const price = document.createElement("div");
+      price.classList.add('price')
       price.innerText = "Price: " + data.products[i].price + " kr";
+      const descrip = document.createElement('h4')
+      descrip.classList.add('description')
+      descrip.innerText = data.products[i].name;
 
       const quantity = document.createElement("div");
       quantity.innerText = "Quantity: " + data.products[i].quantity;
 
       const button = document.createElement('button');
       button.innerText = 'Buy'
+      para.appendChild(descrip)
 
       para.appendChild(price);
       para.appendChild(quantity);
