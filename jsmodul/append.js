@@ -26,9 +26,13 @@ export async function displayIt() {
       const quantity = document.createElement("div");
       quantity.innerText = "Quantity: " + data.products[i].quantity;
 
+      const button = document.createElement('button');
+      button.innerText = 'Buy'
+
       para.appendChild(price);
       para.appendChild(quantity);
       para.appendChild(photo);
+      bodyEl.appendChild(button)
       bodyEl.appendChild(para);
 
       console.log(myStringArray[i]);
