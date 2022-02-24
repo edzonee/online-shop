@@ -10,8 +10,8 @@ class Cart {
     this.#calculate = calculate;
     this.#buy = buy;
   }
-  addItem() {
-    return this.#add;
+  addItem(korv) {
+    console.log(korv);
   }
   removeItem() {
     return this.#remove;
