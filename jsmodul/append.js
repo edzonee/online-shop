@@ -40,6 +40,7 @@ export async function displayIt() {
       bodyEl.appendChild(button)
       bodyEl.appendChild(para);
 
+      
       console.log(myStringArray[i]);
 
     
