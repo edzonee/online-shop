@@ -41,6 +41,9 @@ export async function displayIt() {
       bodyEl.appendChild(para);
 
       console.log(myStringArray[i]);
+
+    
+
     }
   });
 }
