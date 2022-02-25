@@ -5,16 +5,28 @@ export async function fetchurl() {
   let data = await response.json();
   return data;
 }
-class Products {
+export class Products {
   #name
   #price
-  #quantitiy
+  #quantity
   #photo
   
   constructor(name, price, quantity, photo){
     this.#name = name
     this.#price = price
-    this.#quantitiy = quantity
+    this.#quantity = quantity
     this.#photo = photo
+  }
+  getName(){
+    return this.#name
+  }
+  getPrice(){
+    return this.#price
+  }
+  getQuantity(){
+    return this.#quantity
+  }
+  getPhoto(){
+    return this.#photo
   }
 }
