@@ -1,7 +1,6 @@
 import { fetchurl, Products } from "./fetch.js";
 import { Cart } from "./cart.js";
 
-console.log(fetchurl());
 export async function displayIt() {
   await fetchurl().then((data) => {
     let myStringArray = data.products;
@@ -13,7 +12,15 @@ export async function displayIt() {
         myStringArray[i].price,
         myStringArray[i].quantity,
         myStringArray[i].photo
+
+        
+
+
       );
+
+        
+
+
       myProducts.push(prod);
 
       const productsCard = document.createElement("div");
@@ -34,6 +41,7 @@ export async function displayIt() {
       quantity.innerText = "Quantity: " + myStringArray[i].quantity;
 
       const button = document.createElement("button");
+      button.classList.add('buttonbuy')
       button.innerText = "Buy";
 
       const photo = document.createElement("img");
@@ -45,7 +53,35 @@ export async function displayIt() {
       productsCard.appendChild(photo);
       productsCard.appendChild(price);
       productsCard.appendChild(quantity);
+
+      let button2 = document.querySelector(".buttonbuy")
+      button2.addEventListener("click", (e) => {
+      function addShopItems(quantitynot, quantity) {
+      const div = document.querySelector(".num-items");
+      div.innerText = data.products[i];
+      div.classList.add("shopresult");
+      if (quantity) div.classList.add("result");
+
+      
+     
     }
+    addShopItems();
+
+    console.log(addShopItems())
+
+  })  
+   
+    
+    }
+   
+
+
+
+console.log(Number)
+    
     console.log(myProducts);
+    
   });
 }
+
+
