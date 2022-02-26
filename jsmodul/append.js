@@ -1,4 +1,3 @@
-
 import { fetchurl, Products } from "./fetch.js";
 import { Cart } from "./cart.js";
 
@@ -47,8 +46,6 @@ export async function displayIt() {
       productsCard.appendChild(photo);
       productsCard.appendChild(price);
       productsCard.appendChild(quantity);
-
-
     }
 
     console.log(Number);
@@ -58,18 +55,17 @@ export async function displayIt() {
   });
 }
 
-function myButtonFunction(myStringArray){
-  
-let button2 = document.querySelectorAll(".buttonbuy");
-button2.forEach(button  =>{ button.addEventListener("click", (e) => {
-   
-    
+function myButtonFunction(myStringArray) {
+  let button2 = document.querySelectorAll(".buttonbuy");
+  let shopCartNumber = document.querySelector(".num-items");
+  let cartItems = 0;
 
-    let shopCartNumber = document.querySelector(".num-items");
-  console.log(shopCartNumber)
-    shopCartNumber.innerText = 2
- 
-  })
-
-})};
-
+  button2.forEach((button) => {
+    button.addEventListener("click", (e) => {
+/*       cartItems++ */
+      console.log(shopCartNumber);
+      
+      shopCartNumber.innerText = cartItems++;
+    });
+  });
+}
