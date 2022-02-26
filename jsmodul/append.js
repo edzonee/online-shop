@@ -1,3 +1,4 @@
+
 import { fetchurl, Products } from "./fetch.js";
 import { Cart } from "./cart.js";
 
@@ -12,14 +13,7 @@ export async function displayIt() {
         myStringArray[i].price,
         myStringArray[i].quantity,
         myStringArray[i].photo
-
-        
-
-
       );
-
-        
-
 
       myProducts.push(prod);
 
@@ -41,7 +35,7 @@ export async function displayIt() {
       quantity.innerText = "Quantity: " + myStringArray[i].quantity;
 
       const button = document.createElement("button");
-      button.classList.add('buttonbuy')
+      button.classList.add("buttonbuy");
       button.innerText = "Buy";
 
       const photo = document.createElement("img");
@@ -54,34 +48,28 @@ export async function displayIt() {
       productsCard.appendChild(price);
       productsCard.appendChild(quantity);
 
-      let button2 = document.querySelector(".buttonbuy")
-      button2.addEventListener("click", (e) => {
-      function addShopItems(quantitynot, quantity) {
-      const div = document.querySelector(".num-items");
-      div.innerText = data.products[i];
-      div.classList.add("shopresult");
-      if (quantity) div.classList.add("result");
 
-      
-     
     }
-    addShopItems();
 
-    console.log(addShopItems())
+    console.log(Number);
+    myButtonFunction(myStringArray);
 
-  })  
-   
-    
-    }
-   
-
-
-
-console.log(Number)
-    
     console.log(myProducts);
-    
   });
 }
 
+function myButtonFunction(myStringArray){
+  
+let button2 = document.querySelectorAll(".buttonbuy");
+button2.forEach(button  =>{ button.addEventListener("click", (e) => {
+   
+    
+
+    let shopCartNumber = document.querySelector(".num-items");
+  console.log(shopCartNumber)
+    shopCartNumber.innerText = 2
+ 
+  })
+
+})};
 
