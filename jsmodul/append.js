@@ -1,17 +1,20 @@
 import { fetchurl, Products } from "./fetch.js";
 import { Cart } from "./cart.js";
 
+const myCart = [];
+let myProducts = [];
 export async function displayIt() {
   await fetchurl().then((data) => {
     let myStringArray = data.products;
 
-    let myProducts = [];
+
     for (let i = 0; i < myStringArray.length; i++) {
       const prod = new Products(
         myStringArray[i].name,
         myStringArray[i].price,
         myStringArray[i].quantity,
-        myStringArray[i].photo
+        myStringArray[i].photo,
+        myStringArray[i].id
       );
 
       myProducts.push(prod);
@@ -35,6 +38,7 @@ export async function displayIt() {
 
       const button = document.createElement("button");
       button.classList.add("buttonbuy");
+      button.setAttribute('id', i)
       button.innerText = "Buy";
 
       const photo = document.createElement("img");
@@ -58,14 +62,34 @@ export async function displayIt() {
 function myButtonFunction(myStringArray) {
   let button2 = document.querySelectorAll(".buttonbuy");
   let shopCartNumber = document.querySelector(".num-items");
-  let cartItems = 0;
-
+  let cartItems = 1;
   button2.forEach((button) => {
     button.addEventListener("click", (e) => {
-/*       cartItems++ */
-      console.log(shopCartNumber);
-      
+      /*       cartItems++ */
+      let body = document.getElementById("test")
+      console.log(e.target);
+      console.log(myProducts[e.target.id].getName())
+      console.log(myProducts[e.target.id].getPrice())
+      let shopId = document.createElement('li')
+      let amountOfProducts = document.createElement('p')
+      body.append(shopId)
+      body.append(amountOfProducts)
+      amountOfProducts.innerText = 0
+      shopId.style.listStyle = 'none'
+      shopId.innerText = myProducts[e.target.id].getName()
+      shopId.setAttribute('test', e.target)
+
+
+      /*        console.log(myProducts[e.target.id].getIncrement()) */
+
       shopCartNumber.innerText = cartItems++;
     });
+    const cart = new Cart();
+    for (let i = 0; i < myStringArray.length; i++) {
+
+      console.log(myStringArray[i].id)
+    }
+    cart.addItem(myProducts[0]);
+    console.log(cart);
   });
 }

@@ -6,27 +6,33 @@ export async function fetchurl() {
   return data;
 }
 export class Products {
-  #name
-  #price
-  #quantity
-  #photo
-  
-  constructor(name, price, quantity, photo){
-    this.#name = name
-    this.#price = price
-    this.#quantity = quantity
-    this.#photo = photo
+  name
+  price
+  quantity
+  increment
+  photo
+  amount
+
+  constructor(name, price, quantity, photo) {
+    this.name = name
+    this.price = price
+    this.quantity = quantity
+    this.photo = photo
+ /*    this.amount = amount */
   }
-  getName(){
-    return this.#name
+  getName() {
+    return this.name
   }
-  getPrice(){
-    return this.#price
+  getPrice() {
+    return this.price
   }
-  getQuantity(){
-    return this.#quantity
+  getQuantity() {
+    return this.quantity
   }
-  getPhoto(){
-    return this.#photo
+  getPhoto() {
+    return this.photo
+  }
+  getAmount(){
+/*     return this.amount */
   }
 }
