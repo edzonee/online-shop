@@ -33,6 +33,7 @@ img {
 
 }
 
+
 .num {
   color: white;
   height: 100px;
@@ -40,9 +41,11 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20%;
   flex-direction: column;
   gap: 5px;
+  height: 100%;
+  width: 150px;
+  padding: 25px;
 }
 
 .Products {
@@ -59,7 +62,10 @@ button {
 
 }
 
-
+#test{
+  height: 100%;
+  
+}
 
 button{
   background: none;
