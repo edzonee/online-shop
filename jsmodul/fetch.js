@@ -1,38 +1,39 @@
 export async function fetchurl() {
   const url =
-    'https://online-shop-79277-default-rtdb.europe-west1.firebasedatabase.app/.json';
+    "https://online-shop-79277-default-rtdb.europe-west1.firebasedatabase.app/.json";
   let response = await fetch(url);
   let data = await response.json();
   return data;
 }
 export class Products {
-  name
-  price
-  quantity
-  increment
-  photo
-  amount
+  name;
+  price;
+  quantity;
+  photo;
+  amount;
 
-  constructor(name, price, quantity, photo) {
-    this.name = name
-    this.price = price
-    this.quantity = quantity
-    this.photo = photo
- /*    this.amount = amount */
+  constructor(name, price, quantity, photo, amount) {
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+    this.photo = photo;
+    this.amount = amount;
   }
   getName() {
-    return this.name
+    return this.name;
   }
   getPrice() {
-    return this.price
+    return this.price;
   }
   getQuantity() {
-    return this.quantity
+    return this.quantity;
   }
   getPhoto() {
-    return this.photo
+    return this.photo;
   }
-  getAmount(){
-/*     return this.amount */
+  getAmount() {
+    /* counter = 0;
+    counter++; */
+    return this.amount;
   }
 }
