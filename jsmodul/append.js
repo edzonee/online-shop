@@ -1,12 +1,14 @@
 import { fetchurl, Products } from "./fetch.js";
 import { Cart } from "./cart.js";
 
+let cart;
+
 const myCart = [];
 let myProducts = [];
-export async function displayIt() {
+export async function displayIt(tempCart) {
+  cart = tempCart;
   await fetchurl().then((data) => {
     let myStringArray = data.products;
-
 
     for (let i = 0; i < myStringArray.length; i++) {
       const prod = new Products(
@@ -38,7 +40,7 @@ export async function displayIt() {
 
       const button = document.createElement("button");
       button.classList.add("buttonbuy");
-      button.setAttribute('id', i)
+      button.setAttribute("id", i);
       button.innerText = "Buy";
 
       const photo = document.createElement("img");
@@ -55,10 +57,11 @@ export async function displayIt() {
     console.log(Number);
     myButtonFunction(myStringArray);
 
-    console.log(myProducts);
+    /*   console.log(myProducts); */
   });
 }
 
+let myList = [];
 function myButtonFunction(myStringArray) {
   let button2 = document.querySelectorAll(".buttonbuy");
   let shopCartNumber = document.querySelector(".num-items");
@@ -66,30 +69,38 @@ function myButtonFunction(myStringArray) {
   button2.forEach((button) => {
     button.addEventListener("click", (e) => {
       /*       cartItems++ */
-      let body = document.getElementById("test")
+      let body = document.getElementById("test");
+
       console.log(e.target);
-      console.log(myProducts[e.target.id].getName())
-      console.log(myProducts[e.target.id].getPrice())
-      let shopId = document.createElement('li')
-      let amountOfProducts = document.createElement('p')
-      body.append(shopId)
-      body.append(amountOfProducts)
-      amountOfProducts.innerText = 0
-      shopId.style.listStyle = 'none'
-      shopId.innerText = myProducts[e.target.id].getName()
-      shopId.setAttribute('test', e.target)
+      console.log(myProducts[e.target.id].getName());
+      console.log(myProducts[e.target.id].getPrice());
 
+      let shopId = document.createElement("li");
+      shopId.id = e.target.id;
+      let amountOfProducts = document.createElement("p");
+      amountOfProducts.id = "count-" + shopId.id;
 
+      amountOfProducts.innerText = 1;
+      shopId.style.listStyle = "none";
+      shopId.innerText = myProducts[e.target.id].getName();
+      shopId.setAttribute("test", e.target);
+
+      const result = cart.addItem(shopId);
+
+      if (result) {
+        body.append(shopId);
+        body.append(amountOfProducts);
+        myList.push(shopId);
+      }
       /*        console.log(myProducts[e.target.id].getIncrement()) */
 
       shopCartNumber.innerText = cartItems++;
     });
-    const cart = new Cart();
-    for (let i = 0; i < myStringArray.length; i++) {
 
-      console.log(myStringArray[i].id)
+    for (let i = 0; i < myStringArray.length; i++) {
+      /* console.log(myStringArray[i].id) */
     }
-    cart.addItem(myProducts[0]);
-    console.log(cart);
+
+    /*  console.log(cart); */
   });
 }
